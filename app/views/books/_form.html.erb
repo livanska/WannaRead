@@ -1,0 +1,25 @@
+<%= form_for @book do |f| %>
+    <div class = "form-control">
+        <%= f.label :title%>
+        <%= f.text_field :title%>
+    </div>
+
+     <div class = "form-control">
+        <%= f.label :author%>
+        <%= f.text_field :author%>
+    </div>
+
+     <div class = "form-control">
+        <%= f.label :summery%>
+        <%= f.text_area :summery%>
+    </div>
+
+     <div class = "form-control">
+        <%= f.label :body%>
+        <%= f.text_area :body%>
+    </div>
+
+    <div class = "form-control">
+        <%= f.submit 'Save'%>
+    </div>
+<% end %>
