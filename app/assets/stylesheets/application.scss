@@ -1,0 +1,71 @@
+@font-face {
+  font-family: 'LuckiestGuy-Regular';
+  src: url('app/assets/fonts/LuckiestGuy-Regular.ttf');
+  font-family: 'EricaOne-Regular';
+  src: url('app/assets/fonts/EricaOne-Regular.ttf')
+}
+.head_container {
+	position: relative;
+	max-width: 1000px;
+	margin: 0 auto;
+}
+.head_title{
+    position: absolute;
+    margin: 0 auto;
+    top: 0;
+    color: #f1f1f1;
+    bottom: 0;
+    size: 5em;
+    
+}
+.head_container {
+	.content {
+		position: absolute;
+		bottom: 0;
+		background: rgb(0, 0, 0);
+		background: rgba(0, 0, 0, 0.5);
+		color: #f1f1f1;
+		width: 100%;
+    }
+    img {
+		vertical-align: middle;
+    }
+    .navbar {
+        padding: 0;
+    }
+}
+.head_logo{
+  width: 10%;
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0;
+  top: 15%;
+  left: 10%;
+  border: thick;
+  border-color: white;
+  -webkit-filter: drop-shadow(1px 1px 0 black) drop-shadow(-1px -1px 0 black);
+	filter: drop-shadow(2px 1px 0 white) drop-shadow(-2px -1px 0 white);
+}
+.head_text{
+  position: absolute;
+  margin: 0 auto;
+  bottom: 0;
+  top: 15%;
+  left: 19%;
+  font-size: 4em;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  border: black;
+  color: white;
+  text-shadow: 0 0 2px black, 0 0 2px black, 0 0 2px black, 0 0 2px black
+}
+.field_with_errors
+{
+  label {
+    color: #d01612;
+  }
+  input,textarea{
+      border-color: #d01612;
+  }
+} 
+
+ @import "bootstrap"
