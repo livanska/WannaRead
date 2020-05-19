@@ -3,6 +3,9 @@
   <img src="..." class="card-img-top" alt="...">
   <div class="card-body align-items-center">
     <h5 class="card-title"><%= book.title%></h5>
+    <p class="card-text">
+    <%= raw book.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'tag tag-primary' }.join(' ') %>
+    </p>
     <p class="card-text"><%= book.summery%></p>
     <a href="<%= book_path(book) %>" class="btn btn-primary align-items-center">Read</a>
   </div>

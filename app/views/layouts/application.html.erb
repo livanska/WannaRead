@@ -22,9 +22,18 @@
                 <li class="nav-item">
                   <a class="nav-link" href="<%=new_book_path %>">New Book</a>
                 </li>
+                <% if user_signed_in? %>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Link</a>
+                  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
                 </li>
+                <% else %>
+                <li class="nav-item">
+                  <%= link_to "Log in", new_user_session_path, class: "nav-link"%>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Register", new_user_registration_path, class: "nav-link"%>
+                </li>
+                <% end %>
               </ul>
             </nav>
       </div>
@@ -36,10 +45,15 @@
             <div class =' alert alert-<%= bootstrap_class_for(name) %>'>
               <button class="close" data-dismiss="alert">///</button>
               <%= message %>
+               <% end %>
             </div>
         </div>
       </div>
     </div>
     <%= yield %>
+    <div class = 'col-md-4'>
+      <% tag_list (Tag.counts, %w{tag}) do |tag, css_class| %>
+     <%= link_to tag.name, tag_path(tag.name), class: css_class%>
+     <div>
   </body>
 </html>

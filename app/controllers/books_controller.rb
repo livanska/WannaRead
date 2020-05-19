@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    before_action :authenticate_user!, except: [:index, :show]
     before_action :set_book, only:[:show, :edit, :update, :destroy]
 
     def index
@@ -15,7 +16,7 @@ class BooksController < ApplicationController
     def create 
         @book = Book.new(book_params)
         if @book.save
-            redirect_to @book success:'Book was created successfully'
+            redirect_to @book, success:'Book was created successfully'
         else
             render :new, danger:'Book was not created'
         end
@@ -43,6 +44,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-        params.require(:book).permit(:title, :author, :summery, :body)
+        params.require(:book).permit(:title, :author, :summery, :body, :all_tags)
     end
 end
