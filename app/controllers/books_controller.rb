@@ -18,7 +18,8 @@ class BooksController < ApplicationController
         if @book.save
             redirect_to @book, success:'Book was created successfully'
         else
-            render :new, danger:'Book was not created'
+            flash.now[:danger] = 'Book was not created'
+            render :new
         end
     end
 
@@ -29,7 +30,8 @@ class BooksController < ApplicationController
         if @book.update_attributes(book_params)
             redirect_to @book, success:'Book was updated successfully'
         else 
-            render :edit, danger:'Book was not updated'
+            flash.now[:danger] = 'Book was not updated'
+            render :edit
         end
     end
 
