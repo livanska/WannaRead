@@ -1,7 +1,8 @@
 class Book < ApplicationRecord
 has_many :taggings, dependent: :destroy
 has_many :tags, through: :taggings
-
+belongs_to :user
+validates :user_id, presence: true
 validates :title, :author, :summery, presence: true
 def all_tags
     self.tags.map(&:name).join(', ')

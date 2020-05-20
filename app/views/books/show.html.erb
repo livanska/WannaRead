@@ -1,4 +1,6 @@
 <h1><%= @book.title %></h1>
-<%= link_to 'Change',edit_book_path(@book) %>
-<%= link_to 'Delete',book_path(@book),method: :delete, data:{confirm: 'Delete?'} %>
+<% if current_user.id == @book.user_id %>
+    <%= link_to 'Change',edit_book_path(@book) %>
+    <%= link_to 'Delete',book_path(@book),method: :delete, data:{confirm: 'Delete?'} %>
+<% end %>
 <p><%= @book.body %></p>
