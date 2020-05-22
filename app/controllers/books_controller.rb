@@ -21,7 +21,6 @@ class BooksController < ApplicationController
         @book = Book.new(book_params.merge(user_id: current_user.id))
         @book.user = current_user
         if @book.save
-            #redirect_to @book, success:'Book was created successfully'
             flash.now[:success] = 'Book was created successfully'
             render :show
         else
@@ -35,7 +34,6 @@ class BooksController < ApplicationController
     
     def update       
         if @book.update_attributes(book_params)
-          #  redirect_to @book, success:'Book was updated successfully'
             flash.now[:success] = 'Book was updated successfully'
             render :show
         else 

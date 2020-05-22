@@ -5,11 +5,13 @@ Rails.application.routes.draw do
 root 'books#index'
 #match 'user/books',  to: 'user/books#index',         via: 'get'
 get get 'book' => 'books#user_books', :as => :user_books
-resources :books
+resources :books do
+  resources :likes
+end
 resources :tags, only: [:show]
 resources :users do
   member do
-    get :posts
+    get :books
   end
 end
 end
