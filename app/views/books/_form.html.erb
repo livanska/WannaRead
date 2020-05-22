@@ -1,3 +1,4 @@
+
 <% if @book.errors.any? %>
     <div class="alert alert-danger">
         <h5><%= t('common.errors')%></h5>
@@ -22,13 +23,13 @@
         </div>
 
         <div class = "form-group">
-            <%= f.label :summery%>
+            <%= f.label :summery, 'Summary'%>
             <%= f.text_area :summery,class: "form-control"%>
         </div>
 
         <div class = "form-group">
             <%= f.label :body%>
-            <%= f.text_area :body, class: "form-control"%>
+            <%= f.cktext_area :body, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
         </div>
 
         <div class = "form-group">

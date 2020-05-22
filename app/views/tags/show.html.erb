@@ -1,6 +1,6 @@
-<h1><%= @tag.name %></h1>
+<h1>#<%=  @tag.name %></h1>
 <% if @tag.books.empty?%>
-<h2>No books</h2>
+<h2 class="text-center">No books</h2>
 <% else %>
 <%= render @tag.books%>
 <% end %>

@@ -31,7 +31,10 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
-
+#gem 'trix'
+#gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
+gem 'ckeditor', '~> 4.1'
+gem 'will_paginate', '~> 3.1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'sprockets-rails', :require => 'sprockets/railtie'

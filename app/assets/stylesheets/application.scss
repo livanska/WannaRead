@@ -87,5 +87,16 @@
 {
   font-size: 1em;
 }
+.editor{
+  min-height:300px ;
+}
+trix-toolbar .trix-button-group button {
+  background-color: green;
+}
 
- @import "bootstrap"
+trix-toolbar .trix-button-group button.trix-button--icon-bold::before {
+  background-image: none;
+}
+.trix-button--icon-link, .trix-button--icon-ulink { display: none; }
+//@import "bootstrap-sprockets";
+@import "bootstrap"

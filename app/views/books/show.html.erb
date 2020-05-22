@@ -1,6 +1,12 @@
-<h1><%= @book.title %></h1>
-<% if current_user.id == @book.user_id %>
-    <%= link_to 'Change',edit_book_path(@book) %>
-    <%= link_to 'Delete',book_path(@book),method: :delete, data:{confirm: 'Delete?'} %>
-<% end %>
-<p><%= @book.body %></p>
+
+   <div> 
+   <h1 class="text-center"><%= @book.title %></h1>
+    <% if current_user.id == @book.user_id %>
+    <div class="text-center">
+        <%= link_to 'Continue writing',edit_book_path(@book) %> |
+        <%= link_to 'Delete',book_path(@book),method: :delete, data:{confirm: 'Delete?'} %>
+        </div>
+    <% end %>
+    <p class=" text-center"><%= raw @book.body %></p>
+    <%= render 'disqus'%>
+    <div>

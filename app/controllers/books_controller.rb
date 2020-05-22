@@ -6,7 +6,8 @@ class BooksController < ApplicationController
 
 
     def index
-       @books = Book.all
+       @books = Book.paginate(page: params[:page],per_page: 6)
+
     end
 
     def show
@@ -20,7 +21,9 @@ class BooksController < ApplicationController
         @book = Book.new(book_params.merge(user_id: current_user.id))
         @book.user = current_user
         if @book.save
-            redirect_to @book, success:'Book was created successfully'
+            #redirect_to @book, success:'Book was created successfully'
+            flash.now[:success] = 'Book was created successfully'
+            render :show
         else
             flash.now[:danger] = 'Book was not created'
             render :new
@@ -32,7 +35,9 @@ class BooksController < ApplicationController
     
     def update       
         if @book.update_attributes(book_params)
-            redirect_to @book, success:'Book was updated successfully'
+          #  redirect_to @book, success:'Book was updated successfully'
+            flash.now[:success] = 'Book was updated successfully'
+            render :show
         else 
             flash.now[:danger] = 'Book was not updated'
             render :edit
@@ -42,11 +47,13 @@ class BooksController < ApplicationController
 
     def destroy
         @book.destroy
-        redirect_to books_path, success:'Book was deleted'
+        flash.now[:success] = 'Book was updated successfully'
+        render books_path
+        #redirect_to books_path, success:'Book was deleted'
     end
     
     def user_books
-        @books = current_user.books.all.order(created_at: 'DESC')
+        @books = current_user.books.all.order(created_at: 'DESC').paginate(page: params[:page],per_page: 6)
         render :user_books
     end
 

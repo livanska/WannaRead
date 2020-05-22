@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BookBlog</title><%= csrf_meta_tags %><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<title>BookBlog</title>
+		<%= csrf_meta_tags %>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 	</head>
 	<body>
-		<div>
+		<div class ="page_content">
 			<div class ="head_container">
 				<img src="<%= asset_path( 'logo.png' ) %>" class="head_logo" alt="...">
-					<div class= "align-items-center head_text ">anna read?</div>
-					<img src="<%= asset_path( 'header.jpg' ) %>" class="d-block w-100" alt="...">
+						<div class= "align-items-center head_text ">anna read?</div>
+						<img src="<%= asset_path( 'header.jpg' ) %>" class="d-block w-100" alt="...">
 						<div class="content">
 							<nav class="navbar   ">
 								<ul class="nav nav-tabs">
@@ -29,25 +32,28 @@
 									<li class="nav-item"><%= link_to "Register", new_user_registration_path, class: "nav-link"%>
 									</li><% end %>
 								</ul>
+
 							</nav>
+
 						</div>
+
+			</div>
+				
+				
+			<div class="col-md-8 mx-auto mt-2">
+				<% flash.each do |name, message| %>
+					<div class="alert <%= bootstrap_class_for(name) %>">
+						<button class="close" data-dismiss="alert">&times;</button>
+						<%= message %>
 					</div>
-					<div class= 'container main'>
-						<div class = 'row'>
-							<div class = col-md-12>
-							<%= flash.each do |name,message| %>
-								<div class ="alert <%= bootstrap_class_for(name) %>">
-									<button class="close" data-dismiss="alert">&times;</button>
-									<%= message %>
-								</div>
-								<% end %>
-							</div>
-						</div>
+				<% end %>
+			</div>
+				<div class=" container-fluid">
+							<%= yield %>
 					</div>
-					<%= yield %>
-					<div class = 'col-md-10'><% tag_list (Tag.counts) do |tag| %><%= link_to tag.name, tag_path(tag.name), class: "tag" %>
-					<% end %>	
-					</div>
+
 				</div>
-			</body>
-		</html>
+				
+		</div>
+	</body>
+</html>
