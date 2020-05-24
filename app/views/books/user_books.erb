@@ -1,17 +1,28 @@
-<div class="row  ">
-<div class=" col col-md-10 mr-0 align-items-center">
-    <div class="container  p-1 ml-0 mr-0 ">
-        <h1 class="text-center">Books</h1>
-        <div class=" row row-cols-3 d-flex justify-content-center">
+<div class="  row   ">
+    <div class=" col col-md-10 books ">
+    <h1 class="text-center ml-0 mr-3"> My Books</h1>
+        <div class=" books   p-1 ml-0 ">
+            <div class="books row ml-5   ">
              <%= render @books%>
         </div>
     </div>
 </div>
-<div class = ' col col-md m-0 mt-4'>
-							<h3 class = 'mb-4'>Recent</h3>
-							<% tag_list (Tag.counts) do |tag| %>
-							<%= link_to tag.name, tag_path(tag.name), class: "tag" %>
-							<% end %>	
-						</div>
-                        </div>
-<%= will_paginate @books %>
+
+<div class = ' col col-md mr-0 mb-0 mt-5 taggings'>
+    <div class = " border rounded  mt-4 mb-4">
+        <h3 class = ' mt-2 mb-4 text-center '>You're an author?
+            <%= link_to new_book_path, class: 'btn btn-danger btn-xs pull-right  mt-3' do %>
+                <i class="fas fa-book mr-2"></i> Write a book
+            <% end %>
+        </h3>
+    </div >
+        <h3 class = 'mb-4 text-center'>Recent</h3>
+        <% tag_list (Tag.counts) do |tag| %>
+        <%= link_to tag.name, tag_path(tag.name), class: "tag" %>
+        <% end %>	
+	</div>
+</div>
+<div class = " mt-auto d-flex justify-content-center mr-4">
+
+<%= will_paginate @books , renderer: 'BootstrapPaginationHelper::LinkRenderer' %>
+</div>

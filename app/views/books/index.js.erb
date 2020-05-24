@@ -1,0 +1,10 @@
+
+<script>
+$('#books').append("<%= j render(@books) %>");
+
+<% if @books.next_page %>
+    $('.pagination').replaceWith("<%= j  will_paginate(@books, renderer: 'BootstrapPaginationHelper::LinkRenderer') %>");
+<% else %>
+    $('.pagination').remove();
+<% end %>
+</script>

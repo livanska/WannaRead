@@ -24,7 +24,7 @@
 
         <div class = "form-group">
             <%= f.label :summery, 'Summary'%>
-            <%= f.text_area :summery,class: "form-control"%>
+            <%= f.text_area :summery,class: "form-control" ,size: "10x5"%>
         </div>
 
         <div class = "form-group">
@@ -36,8 +36,8 @@
             <%= f.label :all_tags%>
             <%= f.text_field :all_tags, class: "form-control"%>
         </div>
-    <div class = "form-group">
-        <%= f.submit 'Save' %>
+    <div class = "form-group text-center">
+        <%= f.submit 'Save', class: "btn btn-danger btn-lg" %>
     </div>
            
 

@@ -1,40 +1,52 @@
 
     <div> 
+    <div class= "d-flex justify-content-center">
         <h1 class="text-center"><%= @book.title %></h1>
-        <p><%= @book.likes.count %> <%= (@book.likes.count) == 1 ? 'Like' : 'Likes'%></p>
-        <% if user_signed_in?%>
-            <div class="text-center">
-            <% pre_like = @book.likes.find { |like| like.user_id == current_user.id} %>
+
+      
+                <% if user_signed_in?%>
+                    
+                    <% pre_like = @book.likes.find { |like| like.user_id == current_user.id} %>
+                    
+                        <% if pre_like %>
+                            
+                            <%= link_to book_like_path(@book, pre_like), method: :delete , class: ' btn btn-dark btn-xs pull-right  ml-2 align-self-center' do %>
+                            
+                            <i class="fas fa-heart-broken"></i> Unlike
+
+                        <% end %>
+
+                        
+                        <% else %>
             
-                <% if pre_like %>
-                    
-                    <%= link_to book_likes_path(@book), method: :delete, class: ' btn btn-dark btn-xs pull-right' do %>
-                     
-                     <i class="fas fa-heart-broken"></i> Unlike
+                            <%= link_to book_likes_path(@book), method: :post, class: 'btn btn-danger btn-xs pull-right ml-2 align-self-center' do %>
+                            
+                        <i class="far fa-heart "></i> Like
 
-                    <% end %>
-
-                
-                <% else %>
-    
-                    <%= link_to book_likes_path(@book), method: :book, class: 'btn btn-danger btn-xs pull-right' do %>
-                    
-                   <i class="far fa-heart"></i> Like
-
-                    <% end %>
-                
+                        <% end %>
+                        
                 <% end %>
+                
+        
+    </div>
+    <p class=" author_show text-center ">By <%= @book.author%></p>
+       <p class= "text-center"><%= @book.likes.count %> <%= (@book.likes.count) == 1 ? 'Like' : 'Likes'%></p>
 
             <% if current_user.id == @book.user_id %>
-            
-                <%= link_to 'Continue writing',edit_book_path(@book) %> |
-                <%= link_to 'Delete',book_path(@book),method: :delete, data:{confirm: 'Are you sure?'} %>
+            <div class="text-center">
+                <%= link_to edit_book_path(@book), class: 'btn btn-outline-dark btn-xs pull-right' do %>
+                    <i class="far fa-edit"></i> Continue writing
+                <% end %>
+                    <%= link_to book_path(@book),method: :delete, data:{confirm: 'Are you sure?'} , class: 'btn btn-outline-dark btn-xs pull-right' do %>
+                    <i class="far fa-trash-alt"></i> Delete 
+                <% end %>
             <% end %>
 
             </div>
         <% end %>
-
+        <div class="container col-md-10">
         <p class=" text-center"><%= raw @book.body %></p>
-        <%= render 'disqus'%>
+          <%= render 'disqus'%>
+            </div>
 
     </div>

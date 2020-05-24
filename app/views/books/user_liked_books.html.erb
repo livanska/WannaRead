@@ -1,12 +1,9 @@
-
 <div class="  row   ">
     <div class=" col col-md-10 books ">
-    <h1 class="text-center ml-0 mr-3">Books</h1>
+    <h1 class="text-center ml-0 mr-3">Liked Books</h1>
         <div class=" books   p-1 ml-0 ">
-            <div class="books row ml-5   " >
-      <tbody id='books'>
-        <%= render @books %>
-      </tbody>
+            <div class="books row ml-5   ">
+             <%= render @books%>
         </div>
     </div>
 </div>
@@ -25,10 +22,3 @@
         <% end %>	
 	</div>
 </div>
-<div class = " mt-auto d-flex justify-content-center mr-4">
-<%= will_paginate @books , renderer: 'BootstrapPaginationHelper::LinkRenderer' %>
-
-</div>
-
-
-				

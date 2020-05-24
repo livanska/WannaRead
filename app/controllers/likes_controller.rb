@@ -8,15 +8,16 @@ class LikesController < ApplicationController
           @book.likes.create(user_id: current_user.id)
         end
         redirect_to book_path(@book)
-      end
-      def destroy
+    end
+    def destroy
         if !(already_liked?)
           flash[:notice] = "Cannot unlike"
         else
           @like.destroy
         end
         redirect_to book_path(@book)
-      end
+    end
+
   private
   def find_book
     @book = Book.find(params[:book_id])
@@ -24,7 +25,7 @@ class LikesController < ApplicationController
   def find_like
     @like = @book.likes.find(params[:id])
  end
-  def already_liked?
+ def already_liked?
     Like.where(user_id: current_user.id, book_id:
     params[:book_id]).exists?
   end

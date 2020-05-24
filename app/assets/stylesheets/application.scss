@@ -1,3 +1,21 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ *= require_tree .
+ *= require_self
+ */
+
+
 @font-face {
   font-family: 'LuckiestGuy-Regular';
   src: url('app/assets/fonts/LuckiestGuy-Regular.ttf');
@@ -22,7 +40,7 @@
 .head_container {
 	.content {
 		position: absolute;
-		bottom: 0;
+    bottom: 0;
 		background: rgb(0, 0, 0);
 		background: rgba(0, 0, 0, 0.5);
 		color: #f1f1f1;
@@ -33,22 +51,38 @@
     vertical-align: middle;
     //height: 100%;
     }
-    .navbar {
+    .nav{
+      height: 100%;
         padding: 0;
-        height:5em; 
         .nav-tabs{
+        vertical-align: middle;
         height: 100%;
-        .nav-item{
-          vertical-align: middle;
-          height: 100%;
-          
-          .nav-link{
-            height: 100%;
-          }
-        }
+
         }
     }
 }
+.taggings{
+  margin-left: -2em;
+}
+.books{
+  margin-right: -4em;
+}
+.nav-item {
+	>.active {
+		color: rgb(59, 45, 36);
+    background: rgba(233, 210, 175, 0.568);
+    border-radius: 0.1;
+    margin: -0.1em;
+	}
+}
+.pagination nav{
+  padding: 0;
+  list-style: none;
+
+}
+.pagination li{
+  display: inline;
+  }
 .head_logo{
   width: 10%;
   height: 50%;
@@ -86,17 +120,37 @@
 .tag
 {
   font-size: 1em;
+  color:  rgb(59, 45, 36);
+  background-color: rgb(235, 216, 188);
+  border-radius: 0.2em;
+  //margin: 0.2m;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  padding-left: 0.04em;
+  padding-right: 0.04em;
 }
 .editor{
   min-height:300px ;
 }
-trix-toolbar .trix-button-group button {
-  background-color: green;
-}
 
-trix-toolbar .trix-button-group button.trix-button--icon-bold::before {
-  background-image: none;
+.author
+{
+  margin-top: -1em;
+  font-style: oblique;
 }
-.trix-button--icon-link, .trix-button--icon-ulink { display: none; }
-//@import "bootstrap-sprockets";
-@import "bootstrap"
+.author_show
+{
+  margin-top: -0.5em;
+  font-style: oblique;
+}
+.nav-link {color: rgb(255, 255, 255);}
+.nav-link:hover {color: rgb(170, 152, 141);}
+
+
+$theme-colors: (
+  primary: rgb(75, 57, 45)
+);
+
+
+
+@import "bootstrap";

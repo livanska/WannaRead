@@ -1,12 +1,12 @@
 
-<div class=" col-5 card m-4">
+<div class=" col-5 card m-3">
   <div class="card-body align-items-center">
-      <div class ="row">
-        <h5 class="col-auto mr-auto card-title"><%= book.title%> </h5>
+      <div class ="row mb-0 h-25%">
+        <h5 class="col-auto mr-auto card-title mb-0  h-25%"><%= book.title%> </h5>
         <p class =" col-autotext-right"><%= book.likes.count %> <i class="far fa-heart"></i> </p>
       </div>
 
-    <p class="card-text">By <%= book.author%></p>
+    <p class=" author card-text">By <%= book.author%></p>
     <p class="card-text"><%= book.summery%></p>
     <p class="card-text">
     <%=raw book.tags.map(&:name).map{ |t| link_to t, tag_path(t), class: 'tag tag-primary' }.join(' ') %>
@@ -14,6 +14,9 @@
    
   </div>
   <div class=" align-items-center text-center">
-  <a href="<%= book_path(book) %>" class="btn btn-primary align-items-center w-25 mb-3 text-center">Read</a>
+                    <%= link_to book_path(book), class: 'btn btn-dark btn-xs pull-right align-items-center w-25 mb-3 text-center' do %>
+                    <i class="far fa-bookmark"></i> Read
+                <% end %>
   </div>
 </div>
+

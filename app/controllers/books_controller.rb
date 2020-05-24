@@ -5,8 +5,14 @@ class BooksController < ApplicationController
 
 
 
+
+
     def index
-       @books = Book.paginate(page: params[:page],per_page: 6)
+       @books = Book.order(created_at: 'DESC').paginate(page: params[:page],per_page: 6)
+      # respond_to  do |format|
+      #  format.js { render layout: false, content_type: 'text/javascript' } #хз чому не працює, я старалась :(
+      #  format.html
+     #  end
 
     end
 
@@ -55,6 +61,11 @@ class BooksController < ApplicationController
         render :user_books
     end
 
+    def user_liked_books
+        @books =  Book.select{ |b|  b.likes.find { |like| like.user_id == current_user.id}};
+        render :user_liked_books
+    end
+
     private 
     def set_book
         @book = Book.find(params[:id])
@@ -67,4 +78,5 @@ class BooksController < ApplicationController
     def correct_user
         redirect_to root_path, notice: 'You are not allowed to modify this book' unless current_user.id == @book.user_id
     end
+    
 end

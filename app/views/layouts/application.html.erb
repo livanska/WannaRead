@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<title>BookBlog</title>
 		<%= csrf_meta_tags %>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-		<script src="https://kit.fontawesome.com/678f8409a8.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/678f8409a8.js" crossorigin="anonymous"></script>
 	</head>
 	<body>
 		<div class ="page_content">
@@ -13,48 +14,59 @@
 				<img src="<%= asset_path( 'logo.png' ) %>" class="head_logo" alt="...">
 						<div class= "align-items-center head_text ">anna read?</div>
 						<img src="<%= asset_path( 'header.jpg' ) %>" class="d-block w-100" alt="...">
-						<div class="content">
-							<nav class="navbar   ">
-								<ul class="nav nav-tabs">
-									<li class="nav-item">
-										<a class="nav-link active" href="<%=books_path %>">All Books
-										</a>
+						<div class=" content">
+							<nav class="navbar  flex-lg-row ">
+								
+								<ul class=" nav  ">
+									<li class="nav-item "><%=link_to "All Books", books_path, class: "nav-link"%>
 									</li>
-									<li class="nav-item">
-										<a class="nav-link" href="<%=new_book_path %>">New Book
-										</a>
-									</li><% if user_signed_in? %>
-									<li class="nav-item"><%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+									<li class="nav-item"><%= active_link_to "New Book", new_book_path, class: "nav-link"%>
 									</li>
-									<li class="nav-item"><%= link_to "My books", user_books_path, class: "nav-link"%>
-									</li><% else %>
-									<li class="nav-item"><%= link_to "Log in", new_user_session_path, class: "nav-link"%>
-									</li>
-									<li class="nav-item"><%= link_to "Register", new_user_registration_path, class: "nav-link"%>
-									</li><% end %>
-								</ul>
+								
+
+								<% if user_signed_in? %>
+								
+									
+										<li class="nav-item  ml-auto"  ><%= active_link_to "My books", user_books_path, class: "nav-link"%>
+										</li>
+										<li class="nav-item"><%= active_link_to "Liked books", user_liked_books_path(current_user.id), class: "nav-link"%>
+										</li>
+										<ul class=" nav mr-auto ">
+											<li class="nav-item "><%=  active_link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+										</li>
+										</ul>
+								
+
+								<% else %>
+									
+										<li class="nav-item ",style="float:right"><%= active_link_to "Log in ", new_user_session_path, class: "nav-link "%>
+										</li>
+										<li class="nav-item ",style="float:right"><%= active_link_to "Register", new_user_registration_path, class: "nav-link"%>
+										</li>
+									</ul>
+									<% end %>
+							
 
 							</nav>
 
 						</div>
 
 			</div>
-				
-				
-			<div class="col-md-8 mx-auto mt-2">
+			<div class=" col-md-8 mx-auto mt-2">
 				<% flash.each do |name, message| %>
-					<div class="alert <%= bootstrap_class_for(name) %>">
-						<button class="close" data-dismiss="alert">&times;</button>
+					<div class="alert  <%= bootstrap_class_for(name) %> ">
+						<button  class="close"  data-dismiss="alert">&times;</button>
 						<%= message %>
 					</div>
 				<% end %>
 			</div>
-				<div class=" container-fluid">
-							<%= yield %>
-					</div>
+			<div class=" container-fluid">
+				<%= yield %>
+			</div>
 
-				</div>
-				
 		</div>
-	</body>
+				
+	</div>
+</body>
 </html>
+
