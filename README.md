@@ -18,4 +18,6 @@ Ruby on Rails
 * Disquas - comments;
 * Ckeditor - text editing system;
 * Will_paginate - pagination;
-* Letter_opener - auto catchig confirmation letters (in development mode only);
+* Letter_opener - auto catching confirmation letters (in development mode only);
+
+*Contact me: [telegram](https://t.me/lilyk_16)*
