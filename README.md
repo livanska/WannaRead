@@ -1,24 +1,21 @@
-# README
+# Wanna read? 
+Ruby on Rails  
+*Simple book reading and writing service* 
+  
+### Not authorized user:
+- View list of all books;
+- Read book;
+- Find books by tag;
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Authorized user:
+- Write, change, delete his own books;
+- Like other book;
+- View list of his own books;
+- View list of liked books;
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Gems:
+* Device - registration system;
+* Disquas - comments;
+* Ckeditor - text editing system;
+* Will_paginate - pagination;
+* Letter_opener - auto catchig confirmation letters (in development mode only);
