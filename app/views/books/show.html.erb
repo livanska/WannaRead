@@ -41,9 +41,12 @@
                     <i class="far fa-trash-alt"></i> Delete 
                 <% end %>
             <% end %>
-
-            </div>
-        <% end %>
+      <%else%>
+         </div>
+                        <p class=" author_show text-center ">By <%= @book.author%></p>
+                <p class= "text-center"><%= @book.likes.count %> <%= (@book.likes.count) == 1 ? 'Like' : 'Likes'%></p>
+       
+              <% end %>
         <div class="container col-md-10">
         <p class=" text-center"><%= raw @book.body %></p>
           <%= render 'disqus'%>
