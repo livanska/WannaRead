@@ -1,6 +1,10 @@
 GEM
-  remote: https://rubygems.org/
   remote: http://insecure.rails-assets.org/
+  specs:
+    rails-assets-tether (1.4.7)
+
+GEM
+  remote: https://rubygems.org/
   specs:
     actioncable (5.1.7)
       actionpack (= 5.1.7)
@@ -108,13 +112,13 @@ GEM
       mini_mime (>= 0.1.1)
     method_source (1.0.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
+    mini_portile2 (2.6.1)
     minitest (5.14.0)
     nio4r (2.5.2)
-    nokogiri (1.11.2)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
-    nokogiri (1.11.2-x86-mingw32)
+    nokogiri (1.12.5-x86-mingw32)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pg (0.21.0)
@@ -138,7 +142,6 @@ GEM
       bundler (>= 1.3.0)
       railties (= 5.1.7)
       sprockets-rails (>= 2.0.0)
-    rails-assets-tether (1.4.7)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
